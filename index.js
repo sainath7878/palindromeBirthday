@@ -40,3 +40,19 @@ function convertDateToStr(date) {
 
       return [ddmmyyyy,mmddyyyy,yyyymmdd,ddmmyyy,mmddyy,yymmdd]
   }
+
+  function checkPalindromeForAllDateFormats(date){
+      var listOfPalindromes = getAllDateFormats(date);
+
+      var isPalindromeFlag = false;
+
+      for(let i=0; i < listOfPalindrome.length;i++){
+          if(isPalindrome(listOfPalindromes[i])){
+              isPalindromeFlag = true;
+              break;
+          }
+      }
+      return isPalindromeFlag;
+  }
+
+  
