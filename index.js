@@ -128,3 +128,33 @@ function convertDateToStr(date) {
 
     return [counter , nextDate];
   }
+
+  function clickHandler(){
+    var birthdayString = dateInput.value;
+
+    if(birthdayString !==''){
+      var listOfDate = birthdayString.split('-');
+
+      var date = {
+        day : Number(listOfDate[2]),
+        month:Number(listOfDate[1]),
+        year:Number([listOfDate[0]])
+      };
+      
+      var isPalindrome = checkPalindromeForAllDateFormats(date);
+      if(isPalindrome){
+        outputDiv.innerText = "Hurray! Your Birthday is a palindrome."
+      }
+      else{
+        var [counter,nextDate] = getNextPalindromeDate(date);
+
+        outputDiv.innerText = `Your next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, You missed it by ${counter} days.`
+      }
+    }
+  }
+
+  var dateInput = document.querySelector("#date-input");
+  var showButton = document.querySelector(".show-button");
+  var outputDiv = document.querySelector(".output");
+
+  showButton.addEventListener("click", clickHandler);
