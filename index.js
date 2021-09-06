@@ -132,6 +132,8 @@ function convertDateToStr(date) {
   function clickHandler(){
     var birthdayString = dateInput.value;
 
+    outputDiv.style.visibility="visible";
+
     if(birthdayString !==''){
       var listOfDate = birthdayString.split('-');
 
@@ -148,8 +150,11 @@ function convertDateToStr(date) {
       else{
         var [counter,nextDate] = getNextPalindromeDate(date);
 
-        outputDiv.innerText = `Your next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, You missed it by ${counter} days.`
+        outputDiv.innerText = `Oops! Next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, You missed it by ${counter} days.`
       }
+    }
+    else{
+      outputDiv.innerText = "Please Enter your Birthday."
     }
   }
 
